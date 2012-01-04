@@ -1,0 +1,14 @@
+<entity name="ProductType" col_count="1" dbName="producttype" class_path="hibernate.entityBeans.ProductType">
+	<persistence>
+		<field name="ID" dbName="id" primaryKey="true" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="Name" dbName="name" searchable="true" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="Description" dbName="description" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="Version" dbName="version" primaryKey="false" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<child file_name="Product.xml" id="c1" relId="s4" name="Products" class_path="hibernate.entityBeans.Product"/>
+	</persistence>
+	<gui>
+		<field display-list="true" field-rep="disp" name="ID" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="Name" popup-display-list="true" section="o1"/>
+		<field display-list="false" field-rep="opt" name="Description" popup-display-list="false" section="o1"/>
+	</gui>
+</entity>

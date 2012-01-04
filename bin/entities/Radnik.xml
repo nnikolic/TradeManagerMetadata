@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity name="Radnik" col_count="2" dbName="radnik" class_path="hibernate.entities.Radnik">
+	<persistence>
+		<field name="OznakaRadnika" dbName="oznakaRadnika" primaryKey="true" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="RadnoMesto" dbName="radnoMesto" primaryKey="false" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="ObracunZarade" dbName="obracunZarade" primaryKey="false" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="ImeRadnika" dbName="imeRadnika" primaryKey="false" type="String" persistent="true" lookup="false"/>
+		<field name="PrezimeRadnika" dbName="prezimeRadnika" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="UsernameRadnika" dbName="usernameRadnika" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="PasswordRadnika" dbName="passwordRadnika" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="JmbgRadnika" dbName="jmbgRadnika" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="Email" dbName="email" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="ProcenatZarade" dbName="procenatZarade" primaryKey="false" type="Double" persistent="true" lookup="false" relfield="false"/>
+		<field name="Satnica" dbName="satnica" primaryKey="false" type="Double" persistent="true" lookup="false" relfield="false"/>
+		<field name="Analitickikonto" dbName="analitickikonto" primaryKey="false" type="Analitickikonto" persistent="true" lookup="true" relfield="false"/>
+		<child file_name="Telefoni.xml" id="1" name="Telefoni" class_path="hibernate.entities.Telefoni">
+        	
+        </child>
+	</persistence>
+	<gui>
+		<field display-list="true" field-rep="disp" name="OznakaRadnika" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="ImeRadnika" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="PrezimeRadnika" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="UsernameRadnika" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="PasswordRadnika" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="JmbgRadnika" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="Email" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="ProcenatZarade" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="Satnica" popup-display-list="true" section="o1"/>
+	</gui>
+</entity>

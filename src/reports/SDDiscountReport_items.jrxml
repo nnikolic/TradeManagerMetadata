@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SDReport_items" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="TableHeader" hAlign="Center" vAlign="Middle" fontSize="10" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
+	<style name="TableContent" fontSize="10" isBold="false" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
+	<field name="ProductCode" class="java.lang.String">
+		<fieldDescription><![CDATA[SalesPriceItem.Product.Code]]></fieldDescription>
+	</field>
+	<field name="ProductName" class="java.lang.String">
+		<fieldDescription><![CDATA[SalesPriceItem.Product.Name]]></fieldDescription>
+	</field>
+	<field name="Quantity" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Quantity]]></fieldDescription>
+	</field>
+	<field name="Price" class="java.lang.Double">
+		<fieldDescription><![CDATA[SalesPriceItem.WholesalePrice]]></fieldDescription>
+	</field>
+	<field name="Total" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[Total]]></fieldDescription>
+	</field>
+	<field name="Discount" class="java.lang.Double">
+		<fieldDescription><![CDATA[Discount]]></fieldDescription>
+	</field>
+	<field name="PDV" class="java.lang.Double">
+		<fieldDescription><![CDATA[SalesPriceItem.TaxRate]]></fieldDescription>
+	</field>
+	<field name="BasePrice" class="java.lang.Double">
+		<fieldDescription><![CDATA[BasicPrice]]></fieldDescription>
+	</field>
+	<field name="PDVAmount" class="java.lang.Double">
+		<fieldDescription><![CDATA[PdvPrice]]></fieldDescription>
+	</field>
+	<field name="MeasureUnit" class="java.lang.String">
+		<fieldDescription><![CDATA[SalesPriceItem.Product.Unit.Code]]></fieldDescription>
+	</field>
+	<field name="PackageSize" class="java.lang.Double">
+		<fieldDescription><![CDATA[SalesPriceItem.Product.PackageSize]]></fieldDescription>
+	</field>
+	<variable name="TotalAmount" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Total}]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.math.BigDecimal("0.0")]]></initialValueExpression>
+	</variable>
+	<variable name="TotalPDVAmount" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{PDVAmount}]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.math.BigDecimal("0.0")]]></initialValueExpression>
+	</variable>
+	<variable name="TotalBaseAmount" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{BasePrice}]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.math.BigDecimal("0.0")]]></initialValueExpression>
+	</variable>
+	<variable name="ItemNumber" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$V{TotalBaseAmount}++]]></variableExpression>
+		<initialValueExpression><![CDATA[new java.lang.Integer("1")]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="20" y="8" width="42" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Šifra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="62" y="8" width="142" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Naziv]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="258" y="8" width="43" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Količina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="301" y="8" width="35" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Cena
+po jed.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="500" y="8" width="55" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Ukupno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="368" y="8" width="32" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Stopa
+PDV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="336" y="8" width="32" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Rab.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="400" y="8" width="53" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Poreska
+osnova]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="453" y="8" width="47" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[PDV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="230" y="8" width="28" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Jed.
+mere]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="204" y="8" width="26" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Vel.
+pak.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="TableHeader" mode="Opaque" x="0" y="8" width="20" height="28" backcolor="#CCCCCC"/>
+				<box leftPadding="0" rightPadding="0">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[Br,]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="20" y="0" width="42" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ProductCode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="62" y="0" width="142" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ProductName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="258" y="0" width="43" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="301" y="0" width="35" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.00")).format($F{Price})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="500" y="0" width="55" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.00")).format($F{Total})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="368" y="0" width="32" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.##")).format($F{PDV})+"%"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="336" y="0" width="32" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.##")).format($F{Discount})+"%"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="400" y="0" width="53" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.00")).format($F{BasePrice})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="453" y="0" width="47" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.00")).format($F{PDVAmount})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="230" y="0" width="28" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{MeasureUnit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="204" y="0" width="26" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[new java.text.DecimalFormat("#").format($F{PackageSize})+"/1"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="0" y="0" width="20" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$V{ItemNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="500" y="0" width="55" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.00")).format($V{TotalAmount}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="453" y="0" width="47" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.00")).format($V{TotalPDVAmount}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="TableContent" mode="Transparent" x="400" y="0" width="53" height="14"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="1.0" lineStyle="Solid"/>
+					<leftPen lineWidth="1.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.00")).format($V{TotalBaseAmount}.doubleValue())]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

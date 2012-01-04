@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SDReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="HeaderStyle" fill="Solid" hAlign="Left" vAlign="Middle" fontName="SansSerif" fontSize="12"/>
+	<parameter name="MetadataURL" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{MetadataURL}+"reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ItemsDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="CCName" class="java.lang.String">
+		<fieldDescription><![CDATA[CompanyCode.Name]]></fieldDescription>
+	</field>
+	<field name="CCAccountNo" class="java.lang.String">
+		<fieldDescription><![CDATA[CompanyCode.AccountNo]]></fieldDescription>
+	</field>
+	<field name="CCPIB" class="java.lang.String">
+		<fieldDescription><![CDATA[CompanyCode.Pib]]></fieldDescription>
+	</field>
+	<field name="CCTelephone" class="java.lang.String">
+		<fieldDescription><![CDATA[CompanyCode.Telephone]]></fieldDescription>
+	</field>
+	<field name="CCFax" class="java.lang.String">
+		<fieldDescription><![CDATA[CompanyCode.Fax]]></fieldDescription>
+	</field>
+	<field name="StockDocumentCode" class="java.lang.String">
+		<fieldDescription><![CDATA[DocumentCode]]></fieldDescription>
+	</field>
+	<field name="CreationTime" class="java.util.Date">
+		<fieldDescription><![CDATA[CreationTime]]></fieldDescription>
+	</field>
+	<field name="DocumentNote" class="java.lang.String">
+		<fieldDescription><![CDATA[Note]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="23" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{CreationTime}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement style="HeaderStyle" x="123" y="8" width="60" height="16"/>
+				<textElement/>
+				<text><![CDATA[Dobavljac]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="123" y="24" width="60" height="16"/>
+				<textElement/>
+				<text><![CDATA[Racun]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="123" y="40" width="60" height="16"/>
+				<textElement/>
+				<text><![CDATA[PIB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="123" y="56" width="60" height="16"/>
+				<textElement/>
+				<text><![CDATA[Telefon]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="HeaderStyle" x="183" y="8" width="150" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CCName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="HeaderStyle" x="183" y="40" width="150" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CCPIB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="HeaderStyle" x="183" y="24" width="150" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CCAccountNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="HeaderStyle" x="183" y="56" width="150" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CCTelephone}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement style="HeaderStyle" x="123" y="72" width="60" height="16"/>
+				<textElement/>
+				<text><![CDATA[Fax]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="HeaderStyle" x="183" y="72" width="150" height="16"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{CCFax}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="93" width="555" height="4" forecolor="#999999" backcolor="#999999"/>
+			</rectangle>
+			<image>
+				<reportElement x="0" y="8" width="120" height="80"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{MetadataURL}+"reports\\images\\Logo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement style="HeaderStyle" x="344" y="15" width="110" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rashod br.]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="HeaderStyle" x="454" y="15" width="79" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{StockDocumentCode}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="4" forecolor="#999999" backcolor="#999999"/>
+			</rectangle>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="4" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="100"/>
+				<dataSourceExpression><![CDATA[$P{ItemsDataSource}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "SDExpReport_items.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="180" splitType="Stretch">
+			<rectangle>
+				<reportElement x="278" y="86" width="277" height="90"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="86" width="278" height="90"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="HeaderStyle" x="13" y="109" width="87" height="16"/>
+				<textElement/>
+				<text><![CDATA[Ime i prezime:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="13" y="125" width="87" height="16"/>
+				<textElement/>
+				<text><![CDATA[JMBG:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="13" y="141" width="87" height="16"/>
+				<textElement/>
+				<text><![CDATA[Br. lične karte:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="13" y="157" width="87" height="16"/>
+				<textElement/>
+				<text><![CDATA[Telefon]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="5" y="86" width="49" height="18"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Izdao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="109" y="109" width="138" height="16"/>
+				<textElement/>
+				<text><![CDATA[Milorad Nikolić]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="109" y="125" width="138" height="16"/>
+				<textElement/>
+				<text><![CDATA[1808977500479]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="109" y="141" width="138" height="16"/>
+				<textElement/>
+				<text><![CDATA[25338]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="109" y="157" width="138" height="16"/>
+				<textElement/>
+				<text><![CDATA[0637487416]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="HeaderStyle" x="283" y="86" width="95" height="18"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Napomena]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="0" y="6" width="555" height="4" forecolor="#999999" backcolor="#999999"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="HeaderStyle" x="5" y="12" width="79" height="16"/>
+				<textElement/>
+				<text><![CDATA[Obrazlozenje:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="HeaderStyle" x="5" y="28" width="545" height="55"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DocumentNote}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="508" y="0" width="47" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="10" splitType="Stretch"/>
+	</summary>
+</jasperReport>

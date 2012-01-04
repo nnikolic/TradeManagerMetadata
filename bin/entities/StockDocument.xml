@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity name="StockDocument" printable="true" list_printable="false" col_count="1" custom_delete="true" dbName="stockdocument" class_path="hibernate.entityBeans.StockDocument" custom_gui="true" view="" insert="InsertStockDocumentForm">
+	<persistence>
+		<field name="ID" dbName="id" primaryKey="true" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="DocumentCode" dbName="document_code" primaryKey="false" searchable="true" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="CreationTime" dbName="creationtime" primaryKey="false" searchable="true" type="Date" persistent="true" lookup="false" relfield="false"/>
+		<field name="SalesPriceID" dbName="salespriceid" primaryKey="false" searchable="true" type="Integer" persistent="false" sibling_id="s1" lookup="true" relfield="true"/>
+		<field name="SalesPriceName" dbName="salespricename" primaryKey="false" searchable="true" type="String" persistent="false" sibling_id="s1" lookup="false" relfield="true"/>
+		<field name="DocumentTypeID" dbName="documenttypeid" primaryKey="false" searchable="true" type="Integer" persistent="false" sibling_id="s2" lookup="true" relfield="true"/>
+		<field name="DocumentTypeName" dbName="documenttypename" primaryKey="false" type="String" persistent="false" sibling_id="s2" lookup="false" relfield="true"/>
+		<field name="WarehouseOutName" dbName="warehouseoutname" primaryKey="false" searchable="true" type="String" persistent="false" sibling_id="s3" lookup="true" relfield="true"/>
+		<field name="WarehouseInName" dbName="warehouseinname" primaryKey="false" searchable="true" type="String" persistent="false" sibling_id="s4" lookup="true" relfield="true"/>
+		<field name="BusinessPartnerID" dbName="businesspartnerid" searchable="true" primaryKey="false" type="Integer" persistent="false" sibling_id="s5" lookup="true" relfield="true"/>
+		<field name="BusinessPartnerName" dbName="businesspartnername" searchable="true" primaryKey="false" type="String" persistent="false" sibling_id="s5" lookup="false" relfield="true"/>
+		<field name="Canceled" dbName="canceled" primaryKey="false" searchable="true" type="Boolean" persistent="true" lookup="false" relfield="false"/>
+		<child file_name="StockDocumentItem.xml" include_in_next_actions="false" id="1" name="Items" class_path="hibernate.entityBeans.StockDocumentItem"/>
+		<child file_name="StockDocumentPayment.xml" id="2" relId="s1" name="Payments" class_path="hibernate.entityBeans.StockDocumentPayment"/>
+		<sibling id="s1" name="SalesPrice" file_name="SalesPrice.xml" class_path="hibernate.entityBeans.SalesPrice">
+			<fildrel basename="ID" name="SalesPriceID"/>
+			<fildrel basename="Name" name="SalesPriceName"/>
+		</sibling>
+		<sibling id="s2" name="DocumentType" file_name="DocumentType.xml" class_path="hibernate.entityBeans.DocumentType">
+			<fildrel basename="ID" name="DocumentTypeID"/>
+			<fildrel basename="Name" name="DocumentTypeName"/>
+		</sibling>
+		<sibling id="s3" name="WarehouseOut" file_name="Warehouse.xml" class_path="hibernate.entityBeans.Warehouse">
+			<fildrel basename="Name" name="WarehouseOutName"/>
+		</sibling>
+		<sibling id="s4" name="WarehouseIn" file_name="Warehouse.xml" class_path="hibernate.entityBeans.Warehouse">
+			<fildrel basename="Name" name="WarehouseInName"/>
+		</sibling>
+		<sibling id="s5" name="BusinessPartner" file_name="BusinessPartner.xml" class_path="hibernate.entityBeans.BusinessPartner">
+			<fildrel basename="ID" name="BusinessPartnerID"/>
+			<fildrel basename="Name" name="BusinessPartnerName"/>
+		</sibling>
+	</persistence>
+	<gui>
+		<field display-list="true" field-rep="disp" name="DocumentCode" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="CreationTime" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="SalesPriceName" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="DocumentTypeName" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="WarehouseOutName" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="WarehouseInName" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="BusinessPartnerName" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="disp" name="Canceled" popup-display-list="true" section="o1"/>
+	</gui>
+</entity>

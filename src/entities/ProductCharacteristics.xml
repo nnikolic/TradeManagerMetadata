@@ -1,0 +1,10 @@
+<entity name="ProductCharacteristics" col_count="1" dbName="roductcharacteristics" class_path="hibernate.entityBeans.ProductCharacteristics">
+	<persistence>
+		<field name="ID" dbName="id" primaryKey="true" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="Description" dbName="description" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+	</persistence>
+	<gui>
+		<field display-list="true" field-rep="disp" name="ID" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="Description" popup-display-list="true" section="o1"/>
+	</gui>
+</entity>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity name="SalesPrice" printable="true" col_count="1" dbName="salesprice" class_path="hibernate.entityBeans.SalesPrice" custom_gui="true" view="" insert="InsertSalesPriceForm">
+	<persistence>
+		<field name="ID" dbName="id" primaryKey="true" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="Name" dbName="name" primaryKey="false" searchable="true" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="Oppened" dbName="opened" searchable="true" primaryKey="false" type="Boolean" persistent="true" lookup="false" relfield="false"/>
+		<field name="ValidFrom" dbName="validfrom" searchable="true" primaryKey="false" type="Date" persistent="true" lookup="false" relfield="false"/>
+		<field name="ValidTo" dbName="validto" searchable="true" primaryKey="false" type="Date" persistent="true" lookup="false" relfield="false"/>
+		<child file_name="SalesPriceItem.xml" id="1" name="SalesPriceItems" class_path="hibernate.entityBeans.SalesPriceItem"/>
+	</persistence>
+	<gui>
+		<field display-list="true" field-rep="disp" name="ID" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="Name" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="ValidFrom" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="ValidTo" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="Oppened" popup-display-list="true" section="o1"/>
+	</gui>
+</entity>

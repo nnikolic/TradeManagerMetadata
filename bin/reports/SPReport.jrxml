@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SDReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="21"/>
+	<style name="HeaderStyle" isDefault="false" fill="Solid" hAlign="Left" vAlign="Middle" fontName="SansSerif" fontSize="12"/>
+	<parameter name="MetadataURL" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA[$P{MetadataURL}+"reports\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ItemsDataSource" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<field name="Name" class="java.lang.String">
+		<fieldDescription><![CDATA[Name]]></fieldDescription>
+	</field>
+	<field name="ID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[ID]]></fieldDescription>
+	</field>
+	<field name="validFrom" class="java.util.Date">
+		<fieldDescription><![CDATA[ValidFrom]]></fieldDescription>
+	</field>
+	<field name="oppened" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[Oppened]]></fieldDescription>
+	</field>
+	<variable name="CreationTime" class="java.util.Date">
+		<initialValueExpression><![CDATA[new java.util.Date()]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="23" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="88" y="3" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$V{CreationTime}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="3" width="88" height="20"/>
+				<textElement/>
+				<text><![CDATA[Datum štampanja:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="101" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="93" width="555" height="4" forecolor="#999999" backcolor="#999999"/>
+			</rectangle>
+			<image>
+				<reportElement x="0" y="8" width="120" height="80"/>
+				<imageExpression class="java.lang.String"><![CDATA[$P{MetadataURL}+"reports\\images\\Logo.png"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="4" forecolor="#999999" backcolor="#999999"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="126" y="36" width="78" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cenovnik:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="215" y="34" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{Name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="126" y="14" width="78" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cenovnik ID:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="215" y="16" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$F{ID}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="126" y="54" width="78" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Važi od:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="215" y="52" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{validFrom}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="126" y="74" width="78" height="18"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Otvoren:]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="215" y="72" width="52" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{oppened}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="4" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="100" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="100"/>
+				<dataSourceExpression><![CDATA[$P{ItemsDataSource}]]></dataSourceExpression>
+				<subreportExpression class="java.lang.String"><![CDATA[$P{SUBREPORT_DIR} + "SPReport_items.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="124" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="6" width="555" height="4" forecolor="#999999" backcolor="#999999"/>
+			</rectangle>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="14" splitType="Stretch">
+			<textField>
+				<reportElement x="508" y="0" width="47" height="14"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="10" splitType="Stretch"/>
+	</summary>
+</jasperReport>

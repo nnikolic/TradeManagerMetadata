@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity name="Product" col_count="1" dbName="product" class_path="hibernate.entityBeans.Product" list_printable="true" list_print_template="ProductListPrint.jrxml">
+	<persistence>
+		<field name="ID" dbName="id" primaryKey="true" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="Code" dbName="code" primaryKey="false" type="String" persistent="true" searchable="true" lookup="false" relfield="false"/>
+		<field name="Name" dbName="name" primaryKey="false" type="String" persistent="true" searchable="true" lookup="false" relfield="false"/>
+		<field name="Description" dbName="description" primaryKey="false" type="String" persistent="true" lookup="false" relfield="false"/>
+		<field name="FamilyID" dbName="familyid" primaryKey="false" type="Integer" searchable="true" persistent="false" lookup="true" sibling_id="s1" relfield="true"/>
+		<field name="FamilyName" dbName="familyname" primaryKey="false" type="String" persistent="false" lookup="false" sibling_id="s1" relfield="true"/>
+		<field name="GroupID" dbName="groupid" primaryKey="false" type="Integer" searchable="true" persistent="false" lookup="true" sibling_id="s3" relfield="true"/>
+		<field name="GroupName" dbName="groupname" primaryKey="false" type="String" persistent="false" lookup="false" sibling_id="s3" relfield="true"/>
+		<field name="TypeID" dbName="typeid" primaryKey="false" type="Integer" searchable="true" persistent="false" lookup="true" sibling_id="s4" relfield="true"/>
+		<field name="TypeName" dbName="typename" primaryKey="false" type="String" persistent="false" lookup="false" sibling_id="s4" relfield="true"/>
+		<field name="Version" dbName="version" primaryKey="false" type="Integer" persistent="true" lookup="false" relfield="false"/>
+		<field name="CharacteristicsID" dbName="characteristicsid" primaryKey="false" type="Integer" persistent="false" lookup="true" sibling_id="s2" relfield="true"/>
+		<field name="PackageSize" dbName="package_size" primaryKey="false" type="Double" persistent="true" searchable="true" lookup="false" relfield="false"/>
+		<field name="UnitID" dbName="unitid" primaryKey="false" type="Integer" persistent="false" lookup="true" sibling_id="s5" relfield="true"/>
+		<field name="UnitCode" dbName="unitcode" primaryKey="false" type="String" persistent="false" lookup="false" sibling_id="s5" relfield="true"/>
+		<sibling id="s1" name="Family" file_name="ProductFamily.xml" class_path="hibernate.entityBeans.ProductFamily">
+			<fildrel basename="ID" name="FamilyID"/>
+			<fildrel basename="Name" name="FamilyName"/>
+		</sibling>
+		<sibling id="s3" name="Group" file_name="ProductGroup.xml" class_path="hibernate.entityBeans.ProductGroup">
+			<fildrel basename="ID" name="GroupID"/>
+			<fildrel basename="Name" name="GroupName"/>
+		</sibling>
+		<sibling id="s4" name="Type" file_name="ProductType.xml" class_path="hibernate.entityBeans.ProductType">
+			<fildrel basename="ID" name="TypeID"/>
+			<fildrel basename="Name" name="TypeName"/>
+		</sibling>
+		<sibling id="s2" name="Characteristics" file_name="ProductCharacteristics.xml" class_path="hibernate.entityBeans.ProductCharacteristics">
+			<fildrel basename="ID" name="CharacteristicsID"/>
+		</sibling>
+		<sibling id="s5" name="Unit" file_name="MeasureUnit.xml" class_path="hibernate.entityBeans.MeasureUnit">
+			<fildrel basename="ID" name="UnitID"/>
+			<fildrel basename="Code" name="UnitCode"/>
+		</sibling>
+	</persistence>
+	<gui>
+		<field display-list="true" field-rep="disp" name="ID" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="Code" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="Name" popup-display-list="true" section="o1"/>
+		<field display-list="false" field-rep="req" name="FamilyID" popup-display-list="false" section="o1"/>
+		<field display-list="true" field-rep="req" name="FamilyName" popup-display-list="false" section="o1"/>
+		<field display-list="false" field-rep="req" name="GroupID" popup-display-list="false" section="o1"/>
+		<field display-list="true" field-rep="req" name="GroupName" popup-display-list="false" section="o1"/>
+		<field display-list="false" field-rep="req" name="TypeID" popup-display-list="false"  section="o1"/>
+		<field display-list="true" field-rep="req" name="TypeName" popup-display-list="false" section="o1"/>
+		<field display-list="false" field-rep="req" name="UnitID" popup-display-list="false" section="o1"/>
+		<field display-list="true" field-rep="req" name="UnitCode" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="req" name="PackageSize" popup-display-list="true" section="o1"/>
+		<field display-list="false" field-rep="opt" name="CharacteristicsID" popup-display-list="false" section="o1"/>
+	</gui>
+</entity>
