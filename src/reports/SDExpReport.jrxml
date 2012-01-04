@@ -116,7 +116,7 @@
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{StockDocumentCode}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{StockDocumentCode}.substring(0,1)+" "+$F{StockDocumentCode}.substring(1)]]></textFieldExpression>
 			</textField>
 			<rectangle>
 				<reportElement x="0" y="0" width="555" height="4" forecolor="#999999" backcolor="#999999"/>

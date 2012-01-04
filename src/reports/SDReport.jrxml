@@ -3,7 +3,7 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="21"/>
-	<style name="HeaderStyle" isDefault="false" fill="Solid" hAlign="Left" vAlign="Middle" fontName="SansSerif" fontSize="12"/>
+	<style name="HeaderStyle" fill="Solid" hAlign="Left" vAlign="Middle" fontName="SansSerif" fontSize="12"/>
 	<parameter name="MetadataURL" class="java.lang.String"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[$P{MetadataURL}+"reports\\"]]></defaultValueExpression>
@@ -160,7 +160,7 @@
 				<textElement>
 					<font size="14" isBold="true"/>
 				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{StockDocumentCode}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{StockDocumentCode}.substring(0,1)+" "+$F{StockDocumentCode}.substring(1)]]></textFieldExpression>
 			</textField>
 			<rectangle>
 				<reportElement x="0" y="0" width="555" height="4" forecolor="#999999" backcolor="#999999"/>
