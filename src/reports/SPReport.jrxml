@@ -84,11 +84,6 @@
 				</textElement>
 				<text><![CDATA[Važi od:]]></text>
 			</staticText>
-			<textField pattern="dd/MM/yyyy">
-				<reportElement x="215" y="52" width="52" height="20"/>
-				<textElement/>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{validFrom}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="126" y="74" width="78" height="18"/>
 				<textElement>
@@ -96,10 +91,15 @@
 				</textElement>
 				<text><![CDATA[Otvoren:]]></text>
 			</staticText>
-			<textField pattern="">
-				<reportElement x="215" y="72" width="52" height="20"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="215" y="54" width="52" height="18"/>
 				<textElement/>
-				<textFieldExpression class="java.lang.Boolean"><![CDATA[$F{oppened}]]></textFieldExpression>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{validFrom}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="215" y="74" width="52" height="18"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{oppened} ? "DA" : "NE"]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageHeader>

@@ -3,8 +3,8 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="TableHeader" hAlign="Center" vAlign="Middle" fontSize="10" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
-	<style name="TableContent" fontSize="10" isBold="false" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
+	<style name="TableHeader" isDefault="false" hAlign="Center" vAlign="Middle" fontSize="10" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
+	<style name="TableContent" isDefault="false" fontSize="10" isBold="false" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
 	<field name="ProductCode" class="java.lang.String">
 		<fieldDescription><![CDATA[SalesPriceItem.Product.Code]]></fieldDescription>
 	</field>
@@ -51,7 +51,7 @@
 		<initialValueExpression><![CDATA[new java.math.BigDecimal("0.0")]]></initialValueExpression>
 	</variable>
 	<variable name="ItemNumber" class="java.lang.Integer" calculation="Count">
-		<variableExpression><![CDATA[$V{TotalBaseAmount}++]]></variableExpression>
+		<variableExpression><![CDATA[$V{ItemNumber} + 1]]></variableExpression>
 		<initialValueExpression><![CDATA[new java.lang.Integer("1")]]></initialValueExpression>
 	</variable>
 	<background>
@@ -77,7 +77,7 @@
 				<text><![CDATA[Šifra]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="TableHeader" mode="Opaque" x="62" y="8" width="231" height="28" backcolor="#CCCCCC"/>
+				<reportElement style="TableHeader" mode="Opaque" x="62" y="8" width="203" height="28" backcolor="#CCCCCC"/>
 				<box leftPadding="0" rightPadding="0">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -88,7 +88,7 @@
 				<text><![CDATA[Naziv]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="TableHeader" mode="Opaque" x="347" y="8" width="43" height="28" backcolor="#CCCCCC"/>
+				<reportElement style="TableHeader" mode="Opaque" x="319" y="8" width="43" height="28" backcolor="#CCCCCC"/>
 				<box leftPadding="0" rightPadding="0">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -99,7 +99,7 @@
 				<text><![CDATA[Količina]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="TableHeader" mode="Opaque" x="390" y="8" width="47" height="28" backcolor="#CCCCCC"/>
+				<reportElement style="TableHeader" mode="Opaque" x="362" y="8" width="75" height="28" backcolor="#CCCCCC"/>
 				<box leftPadding="0" rightPadding="0">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -108,7 +108,7 @@
 				</box>
 				<textElement/>
 				<text><![CDATA[Cena
-po jed.]]></text>
+po jed. sa PDV]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="TableHeader" mode="Opaque" x="469" y="8" width="86" height="28" backcolor="#CCCCCC"/>
@@ -133,7 +133,7 @@ po jed.]]></text>
 				<text><![CDATA[Rab.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="TableHeader" mode="Opaque" x="319" y="8" width="28" height="28" backcolor="#CCCCCC"/>
+				<reportElement style="TableHeader" mode="Opaque" x="291" y="8" width="28" height="28" backcolor="#CCCCCC"/>
 				<box leftPadding="0" rightPadding="0">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -145,7 +145,7 @@ po jed.]]></text>
 mere]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="TableHeader" mode="Opaque" x="293" y="8" width="26" height="28" backcolor="#CCCCCC"/>
+				<reportElement style="TableHeader" mode="Opaque" x="265" y="8" width="26" height="28" backcolor="#CCCCCC"/>
 				<box leftPadding="0" rightPadding="0">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -183,7 +183,7 @@ pak.]]></text>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{ProductCode}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="TableContent" mode="Transparent" x="62" y="0" width="231" height="14"/>
+				<reportElement style="TableContent" mode="Transparent" x="62" y="0" width="203" height="14"/>
 				<box leftPadding="2" rightPadding="2">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -194,7 +194,7 @@ pak.]]></text>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{ProductName}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="TableContent" mode="Transparent" x="347" y="0" width="43" height="14"/>
+				<reportElement style="TableContent" mode="Transparent" x="319" y="0" width="43" height="14"/>
 				<box leftPadding="2" rightPadding="2">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -205,7 +205,7 @@ pak.]]></text>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{Quantity}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="TableContent" mode="Transparent" x="390" y="0" width="47" height="14"/>
+				<reportElement style="TableContent" mode="Transparent" x="362" y="0" width="75" height="14"/>
 				<box leftPadding="2" rightPadding="2">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -238,7 +238,7 @@ pak.]]></text>
 				<textFieldExpression class="java.lang.String"><![CDATA[(new java.text.DecimalFormat("#.##")).format($F{Discount})+"%"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="TableContent" mode="Transparent" x="319" y="0" width="28" height="14"/>
+				<reportElement style="TableContent" mode="Transparent" x="291" y="0" width="28" height="14"/>
 				<box leftPadding="2" rightPadding="2">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -249,7 +249,7 @@ pak.]]></text>
 				<textFieldExpression class="java.lang.String"><![CDATA[$F{MeasureUnit}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="TableContent" mode="Transparent" x="293" y="0" width="26" height="14"/>
+				<reportElement style="TableContent" mode="Transparent" x="265" y="0" width="26" height="14"/>
 				<box leftPadding="2" rightPadding="2">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>

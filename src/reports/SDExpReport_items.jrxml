@@ -3,8 +3,8 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<style name="TableHeader" hAlign="Center" vAlign="Middle" fontSize="10" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
-	<style name="TableContent" fontSize="10" isBold="false" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
+	<style name="TableHeader" isDefault="false" hAlign="Center" vAlign="Middle" fontSize="10" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
+	<style name="TableContent" isDefault="false" fontSize="10" isBold="false" isItalic="false" isUnderline="false" pdfEncoding="Cp1251"/>
 	<field name="ProductCode" class="java.lang.String">
 		<fieldDescription><![CDATA[SalesPriceItem.Product.Code]]></fieldDescription>
 	</field>
@@ -51,7 +51,7 @@
 		<initialValueExpression><![CDATA[new java.math.BigDecimal("0.0")]]></initialValueExpression>
 	</variable>
 	<variable name="ItemNumber" class="java.lang.Integer" calculation="Count">
-		<variableExpression><![CDATA[$V{TotalBaseAmount}++]]></variableExpression>
+		<variableExpression><![CDATA[$V{ItemNumber} + 1]]></variableExpression>
 		<initialValueExpression><![CDATA[new java.lang.Integer("1")]]></initialValueExpression>
 	</variable>
 	<background>
