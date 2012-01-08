@@ -42,7 +42,7 @@
 	<columnHeader>
 		<band height="36" splitType="Stretch">
 			<staticText>
-				<reportElement style="TableHeader" mode="Opaque" x="57" y="8" width="83" height="28" backcolor="#CCCCCC"/>
+				<reportElement style="TableHeader" mode="Opaque" x="77" y="8" width="63" height="28" backcolor="#CCCCCC"/>
 				<box leftPadding="0" rightPadding="0">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -100,7 +100,7 @@ mere]]></text>
 pak.]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="TableHeader" mode="Opaque" x="0" y="8" width="20" height="28" backcolor="#CCCCCC"/>
+				<reportElement style="TableHeader" mode="Opaque" x="0" y="8" width="30" height="28" backcolor="#CCCCCC"/>
 				<box leftPadding="0" rightPadding="0">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -111,7 +111,7 @@ pak.]]></text>
 				<text><![CDATA[Br,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="TableHeader" mode="Opaque" x="20" y="8" width="37" height="28" backcolor="#CCCCCC"/>
+				<reportElement style="TableHeader" mode="Opaque" x="30" y="8" width="47" height="28" backcolor="#CCCCCC"/>
 				<box leftPadding="0" rightPadding="0">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -126,7 +126,7 @@ pak.]]></text>
 	<detail>
 		<band height="14" splitType="Stretch">
 			<textField>
-				<reportElement style="TableContent" mode="Transparent" x="57" y="0" width="83" height="14"/>
+				<reportElement style="TableContent" mode="Transparent" x="77" y="0" width="63" height="14"/>
 				<box leftPadding="2" rightPadding="2">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -181,7 +181,7 @@ pak.]]></text>
 				<textFieldExpression class="java.lang.String"><![CDATA[new java.text.DecimalFormat("#").format($F{PackageSize})+"/1"]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="TableContent" mode="Transparent" x="0" y="0" width="20" height="14"/>
+				<reportElement style="TableContent" mode="Transparent" x="0" y="0" width="30" height="14"/>
 				<box leftPadding="2" rightPadding="2">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
@@ -192,7 +192,7 @@ pak.]]></text>
 				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{ItemNumber}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement style="TableContent" mode="Transparent" x="20" y="0" width="37" height="14"/>
+				<reportElement style="TableContent" mode="Transparent" x="30" y="0" width="47" height="14"/>
 				<box leftPadding="2" rightPadding="2">
 					<topPen lineWidth="1.0" lineStyle="Solid"/>
 					<leftPen lineWidth="1.0" lineStyle="Solid"/>
