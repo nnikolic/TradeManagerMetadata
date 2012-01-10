@@ -13,6 +13,7 @@
 		<field name="BusinessPartnerID" dbName="businesspartnerid" searchable="true" primaryKey="false" type="Integer" persistent="false" sibling_id="s5" lookup="true" relfield="true"/>
 		<field name="BusinessPartnerName" dbName="businesspartnername" searchable="true" primaryKey="false" type="String" persistent="false" sibling_id="s5" lookup="false" relfield="true"/>
 		<field name="Canceled" dbName="canceled" primaryKey="false" searchable="true" type="Boolean" persistent="true" lookup="false" relfield="false"/>
+		<field name="Paid" primaryKey="false" type="Boolean" persistent="false" lookup="false" relfield="false"/>
 		<child file_name="StockDocumentItem.xml" include_in_next_actions="false" id="1" name="Items" class_path="hibernate.entityBeans.StockDocumentItem"/>
 		<child file_name="StockDocumentPayment.xml" id="2" relId="s1" name="Payments" class_path="hibernate.entityBeans.StockDocumentPayment"/>
 		<sibling id="s1" name="SalesPrice" file_name="SalesPrice.xml" class_path="hibernate.entityBeans.SalesPrice">
@@ -43,5 +44,6 @@
 		<field display-list="true" field-rep="req" name="WarehouseInName" popup-display-list="true" section="o1"/>
 		<field display-list="true" field-rep="req" name="BusinessPartnerName" popup-display-list="true" section="o1"/>
 		<field display-list="true" field-rep="disp" name="Canceled" popup-display-list="true" section="o1"/>
+		<field display-list="true" field-rep="disp" name="Paid" popup-display-list="true" section="o1"/>
 	</gui>
 </entity>
